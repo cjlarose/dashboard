@@ -8,7 +8,7 @@ foreach ($hostgroups as $hostgroup => $hosts) {
 	$table_data = array();
 	foreach ($hosts as $host_address => $host) {
 		$table_data[] = array(
-			anchor("hosts/{$host_address}", $host_address), 
+			anchor("hosts/view/{$host_address}", $host_address), 
 			$host['host_alias'], 
 			$host['host_last_check'], 
 			$host['host_check_output']

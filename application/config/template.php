@@ -58,7 +58,7 @@ $template['active_template'] = 'default';
 
 $template['default']['template'] = 'template';
 $template['default']['regions'] = array(
-   'title' => array('content' => array('Nagios Dashboard')),
+   'title',
    'content',
    'sidebar',
 );

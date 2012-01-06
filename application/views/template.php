@@ -31,9 +31,9 @@
     <div class="topbar">
       <div class="topbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="#">Nagios Dashboard</a>
+          <a class="brand" href="<?php echo base_url('/'); ?>">Nagios Dashboard</a>
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="<?php echo base_url('/'); ?>">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -72,7 +72,8 @@
         </div>
       </div>
       <div class="content">
-	<?php echo $content ?>
+	<h1><?php echo $title; ?></h1>	
+<?php echo $content ?>
         <footer>
           <p>&copy; Company 2012</p>
         </footer>
