@@ -13,6 +13,7 @@
 
     <!-- Le styles -->
     <link href="<?php echo base_url('bootstrap/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('global.css'); ?>" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;

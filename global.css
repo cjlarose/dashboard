@@ -1,0 +1,15 @@
+.host-table td:first-child a {
+	font-weight: bold;
+}
+.host-table td {
+	width: 30%;
+}
+.host-table td + td {
+	width: 6%;
+}
+.host-table td + td + td {
+	width: 21%;
+}
+.host-table td:last-child {
+	width: 50%;
+}
