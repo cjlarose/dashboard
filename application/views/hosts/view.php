@@ -1,16 +1,4 @@
 <?php
-function status_to_label($status) {
-	$classes = array('success', 'warning', 'important', 'notice');
-	$label = array('OK', 'WARNING', 'CRITICAL', 'UNKNOWN');
-	return "<span class=\"label " . $classes[$status]  .  "\">" . $label[$status]  . "</span>";
-}
-
-function boolean_to_label($boolean, $if_true = 'ENABLED', $if_false = 'DISABLED') {
-	if ($boolean == TRUE)
-		return "<span class=\"label success\">{$if_true}</span>";
-	else 
-		return "<span class=\"label\">{$if_false}</span>";
-}
 /*echo "<pre>";
 var_dump($host);
 echo "</pre>";*/
@@ -23,7 +11,7 @@ $table_data[] = array(
 	$host_info['host_id'],
 	$host_info['host_display_name'],
 	$host_info['host_alias'],
-	boolean_to_label($host_info['host_current_state'], 'up', 'down'),
+	boolean_to_label(!$host_info['host_current_state'], 'up', 'down'),
 	$host_info['host_last_check'],
 	$host_info['host_check_output'],
 	boolean_to_label($host_info['host_notifications_enabled']),
