@@ -3,9 +3,6 @@ class Hostgroups extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-		$this->load->library('Template');
-		$this->load->helper('url');
-		$this->load->library('NagiosAPI');
 	}
 
 	public function index() {
