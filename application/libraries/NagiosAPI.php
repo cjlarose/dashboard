@@ -23,9 +23,17 @@ class NagiosAPI {
 			return NULL;
 		} else {
 			$json_data = json_decode($data, TRUE);
+			array_walk_recursive($json_data, array($this, 'to_unix_time'));
 			return $json_data;
 		}
         }
+
+	private function to_unix_time(&$item, $key) {
+		#date_default_timezone_set('America/Phoenix');
+		if (in_array($key, array('host_last_check', 'service_next_check'))) {
+			$item = strtotime($item . ' MST');
+		}	
+	}
 
 	public function get_services_with_state($state) {
 		if (in_array($state, array('ok', 'warning', 'critical', 'unknown'))) {

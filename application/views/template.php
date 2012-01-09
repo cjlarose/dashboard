@@ -12,6 +12,8 @@
     <![endif]-->
 
     <!-- Le styles -->
+    <script src="<?php echo base_url('js/jquery-1.7.1.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/global.js'); ?>"></script>
     <link href="<?php echo base_url('bootstrap/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('global.css'); ?>" rel="stylesheet">
     <style type="text/css">
