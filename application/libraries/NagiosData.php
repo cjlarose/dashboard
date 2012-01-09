@@ -42,7 +42,7 @@ class NagiosData {
 			foreach ($services as $service_id => $service) {
 				$new_row = array();
 				if ($show_host) {
-					$new_row[] = $host_address;
+					$new_row[] = anchor("/hosts/view/{$host_address}", $host_address);
 				}
 
 				$new_row = array_merge($new_row,  array(
