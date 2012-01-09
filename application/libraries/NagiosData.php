@@ -35,12 +35,17 @@ class NagiosData {
 		$this->CI->table->clear();
 	}
 
-	function service_table($service_info) {
+	function service_table($service_info, $show_host = FALSE) {
 		if (!$service_info) return NULL;
 		$table_data = array();
 		foreach ($service_info as $host_address => $services) {
-			foreach ($services as $service_id => $service)
-				$table_data[] = array(
+			foreach ($services as $service_id => $service) {
+				$new_row = array();
+				if ($show_host) {
+					$new_row[] = $host_address;
+				}
+
+				$new_row = array_merge($new_row,  array(
 					//$service['host_object_id'],
 					$service['service_display_name'],
 					status_to_label($service['service_current_state']),
@@ -50,9 +55,15 @@ class NagiosData {
 					boolean_to_label($service['service_notifications_enabled']),
 					boolean_to_label($service['service_active_checks_enabled']),
 					boolean_to_label($service['service_passive_checks_enabled'])
-				);
+				));
+				$table_data[] = $new_row;
+			}
 		}
-		$this->CI->table->set_heading(array('Service', 'Current State', 'Next Check', 'Check Output', 'Notifications', 'Active Checks', 'Passive Checks'));
+		$headings = array();
+		if ($show_host) 
+			$headings[] = 'Host';
+		$headings = array_merge($headings, array('Service', 'Current State', 'Next Check', 'Check Output', 'Notifications', 'Active Checks', 'Passive Checks'));
+		$this->CI->table->set_heading($headings);
 		echo $this->CI->table->generate($table_data);
 		$this->CI->table->clear();
 	}
