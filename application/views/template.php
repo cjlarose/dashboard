@@ -45,7 +45,6 @@
 
     <div class="container-fluid">
       <div class="sidebar">
-        <div class="well">
           <!--
 	  <h5>Sidebar</h5>
           <ul>
@@ -70,7 +69,6 @@
           </ul>
 	  -->
 	  <?php echo $sidebar ?>
-        </div>
       </div>
       <div class="content">
 	<h1><?php echo $title; ?></h1>	

@@ -24,5 +24,11 @@ class NagiosAPI {
                 return $json_data;
         }
 
-
+	public function get_services_with_state($state) {
+		if (in_array($state, array('ok', 'warning', 'critical', 'unknown'))) {
+			$json_data = $this->get_response('services', $state . "_state");
+		} else {
+			return null;
+		}	
+	}
 }
