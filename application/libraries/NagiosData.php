@@ -5,6 +5,7 @@ class NagiosData {
 	
 	public function __construct() {
 		$this->CI =& get_instance();	
+		$this->CI->load->library('table');
 	}
 
 	function host_table($host_info) {
@@ -35,6 +36,7 @@ class NagiosData {
 	}
 
 	function service_table($service_info) {
+		if (!$service_info) return NULL;
 		$table_data = array();
 		foreach ($service_info as $host_address => $services) {
 			foreach ($services as $service_id => $service)

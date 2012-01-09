@@ -12,23 +12,27 @@ class NagiosAPI {
 	public function get_response() {
                 //$url = $this->host . $command;
 		$url = $this->host . "/" . implode('/', func_get_args());
-                $ch = curl_init();
+		$ch = curl_init();
                 $timeout = 5;
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
                 $data = curl_exec($ch);
                 curl_close($ch);
-
-                $json_data = json_decode($data, TRUE);
-                return $json_data;
+		if ($data == '[null]') { 
+			return NULL;
+		} else {
+			$json_data = json_decode($data, TRUE);
+			return $json_data;
+		}
         }
 
 	public function get_services_with_state($state) {
 		if (in_array($state, array('ok', 'warning', 'critical', 'unknown'))) {
 			$json_data = $this->get_response('services', $state . "_state");
+			return $json_data;
 		} else {
-			return null;
+			return NULL;
 		}	
 	}
 }
