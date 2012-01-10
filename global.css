@@ -15,8 +15,12 @@
 }
 
 .host-table tr.hover {
-	background-color: #ff6600;
+	background-color: rgba(255,255,0,.5);
 }
 .host-table tr.active {
-	background-color: #ff00ff;
+	background-color: rgba(0, 0, 255, .2);
+}
+
+.host-table .host-info td {
+	width: auto;
 }
