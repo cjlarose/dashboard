@@ -1,3 +1,12 @@
+function base_url(destination) {
+	if (!destination) destination = "";
+	var url = window.location.href;
+	var url_parts = url.split('/');
+	//var domain_name_parts = url_parts[2].split(':');
+	//var domain_name = domain_name_parts[0];
+	return url_parts[0] + "//" + url_parts[2] + "/" + url_parts[3] + "/" + destination;
+}
+
 $(document).ready(function() {
 	
 	if ($('.host-table').length > 0) {
@@ -21,7 +30,7 @@ $(document).ready(function() {
 				host_address = $(this).data('host_address');
 				console.log(host_address);
 				$(this).next().show().find('td')
-					.load('http://128.196.142.26/nagios-dashboard/services/ajax_view/' + host_address);
+					.load(base_url('services/ajax_view/' + host_address));
 			} else {
 				$(this).removeClass('active');
 				$(this).next().hide();	
