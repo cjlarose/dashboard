@@ -13,3 +13,28 @@
 .host-table td:last-child {
 	width: 50%;
 }
+
+.host-table tr.hover {
+	background-color: rgba(255,255,0,.5);
+}
+.host-table tr.active {
+	background-color: #666;
+	color: #eee;
+}
+.host-table tr.active a {
+	color: #fff;
+}
+
+.host-table tr.host-info {
+	background: #eee;
+}
+.host-table tr.host-info > td {
+	padding: 0;
+	border: 0;
+}
+.host-table tr.host-info th {
+	border-top: 0 none;
+}
+.host-table tr.host-info td {
+	width: auto;
+}

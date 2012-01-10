@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $title; ?></title>
+    <title><?php echo (($title) ? $title . " | " : "") . "Nagios Dashboard"; ?></title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -12,6 +12,8 @@
     <![endif]-->
 
     <!-- Le styles -->
+    <script src="<?php echo base_url('js/jquery-1.7.1.min.js'); ?>"></script>
+    <script src="<?php echo base_url('js/global.js'); ?>"></script>
     <link href="<?php echo base_url('bootstrap/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('global.css'); ?>" rel="stylesheet">
     <style type="text/css">
@@ -45,7 +47,6 @@
 
     <div class="container-fluid">
       <div class="sidebar">
-        <div class="well">
           <!--
 	  <h5>Sidebar</h5>
           <ul>
@@ -70,7 +71,6 @@
           </ul>
 	  -->
 	  <?php echo $sidebar ?>
-        </div>
       </div>
       <div class="content">
 	<h1><?php echo $title; ?></h1>	

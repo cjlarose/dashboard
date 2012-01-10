@@ -12,17 +12,43 @@ class NagiosAPI {
 	public function get_response() {
                 //$url = $this->host . $command;
 		$url = $this->host . "/" . implode('/', func_get_args());
-                $ch = curl_init();
+		$ch = curl_init();
                 $timeout = 5;
                 curl_setopt($ch, CURLOPT_URL, $url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
                 $data = curl_exec($ch);
                 curl_close($ch);
-
-                $json_data = json_decode($data, TRUE);
-                return $json_data;
+		if ($data == '[null]') { 
+			return NULL;
+		} else {
+			$json_data = json_decode($data, TRUE);
+			array_walk_recursive($json_data, array($this, 'to_unix_time'));
+			return $json_data;
+		}
         }
 
+	private function to_unix_time(&$item, $key) {
+		#date_default_timezone_set('America/Phoenix');
+		if (in_array($key, array('host_last_check', 'service_next_check'))) {
+			$item = strtotime($item . ' MST');
+		}	
+	}
 
+	public function get_services_with_state($state) {
+		if (in_array($state, array('ok', 'warning', 'critical', 'unknown'))) {
+			$json_data = $this->get_response('services', $state . "_state");
+			return $json_data;
+		} else {
+			return NULL;
+		}	
+	}
+
+	public function get_services_by_host($host) {
+		if (empty($host))
+			return NULL;
+		
+		$json_data = $this->get_response('services', $host);
+		return $json_data;
+	}
 }
