@@ -28,6 +28,10 @@
 .host-table tr.host-info {
 	background: #eee;
 }
+.host-table tr.host-info > td {
+	padding: 0;
+	border: 0;
+}
 .host-table tr.host-info th {
 	border-top: 0 none;
 }

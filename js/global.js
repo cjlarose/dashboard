@@ -19,23 +19,25 @@ $(document).ready(function() {
 			$(element).data('host_address', $(this).children('td:first-child').contents().last().text())
 		})
 		.hover(function() {$(this).addClass('hover');}, function() {$(this).removeClass('hover')})
-		.after("<tr class=\"host-info\"><td colspan=\""+col_span+"\"></td></tr>")
+		.after("<tr class=\"host-info\"><td colspan=\""+col_span+"\"><div /></td></tr>")
 		.click(function() {
 			if (!$(this).hasClass('active')) {
 				// set active class
-				$('.host-table tbody tr.active').removeClass('active').next().hide();
+				$('.host-table tbody tr.active').removeClass('active').next().find('div').slideUp('slow');
 				$(this).addClass('active');
 				
 				// show host info row
 				host_address = $(this).data('host_address');
 				console.log(host_address);
-				$(this).next().show().find('td')
-					.load(base_url('services/ajax_view/' + host_address));
+				$(this).next().find('div').hide()
+					.load(base_url('services/ajax_view/' + host_address), function() {
+						$(this).slideDown('slow');
+					});
 			} else {
 				$(this).removeClass('active');
-				$(this).next().hide();	
+				$(this).next().find('div').slideUp('slow');	
 			}
 		});
 
-	$('tr.host-info').hide();
+	//$('tr.host-info').hide();
 });
