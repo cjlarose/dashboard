@@ -65,5 +65,11 @@ $template['default']['regions'] = array(
 $template['default']['parser'] = 'parser';
 $template['default']['parser_method'] = 'parse';
 $template['default']['parse_template'] = FALSE;
+
+$template['ajax'] = array(
+	'template' => 'ajax',
+	'regions' => array('content'),
+	'parse_template' => FALSE
+);
 /* End of file template.php */
 /* Location: ./system/application/config/template.php */

@@ -43,4 +43,12 @@ class NagiosAPI {
 			return NULL;
 		}	
 	}
+
+	public function get_services_by_host($host) {
+		if (empty($host))
+			return NULL;
+		
+		$json_data = $this->get_response('services', $host);
+		return $json_data;
+	}
 }

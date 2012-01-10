@@ -17,4 +17,16 @@ class Services extends CI_Controller {
 		$this->template->render();
 	}
 
+	public function ajax_view($host) {
+		if (empty($host)) 
+			exit();
+
+		$data = array();
+		$data['services'] = $this->nagiosapi->get_services_by_host($host);
+
+		$this->template->set_template('ajax');
+		$this->template->write_view('content', 'services/view', $data);
+		$this->template->render();
+	}
+
 }
