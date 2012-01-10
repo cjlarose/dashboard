@@ -9,7 +9,7 @@ foreach ($hostgroups as $hostgroup => $hosts) {
 	foreach ($hosts as $host_address => $host) {
 		$table_data[] = array(
 			anchor("hosts/view/{$host_address}", $host['host_alias'] . " (" .  $host['host_display_name'] . ")") . "<br />" . $host_address, 
-			boolean_to_label(!$host['host_current_state'], 'up', 'down'),
+			boolean_to_label($host['host_current_state'], 'up', 'down'),
 			relative_time_abbr($host['host_last_check']), 
 			$host['host_check_output']
 		);

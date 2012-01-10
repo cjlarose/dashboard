@@ -21,7 +21,7 @@ class NagiosData {
 				$host_data['host_id'],
 				$host_data['host_display_name'],
 				$host_data['host_alias'],
-				boolean_to_label(!$host_data['host_current_state'], 'up', 'down'),
+				boolean_to_label($host_data['host_current_state'], 'up', 'down'),
 				relative_time_abbr($host_data['host_last_check']),
 				$host_data['host_check_output'],
 				boolean_to_label($host_data['host_notifications_enabled']),
