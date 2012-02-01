@@ -8,9 +8,8 @@ class Users extends CI_Controller {
 
 	public function index() {
 		//$this->load->library('table');
-		$user_table = 1686471;
 		$data = array();
-		$data['users'] = $this->fusionapi->query("SELECT user,size,file_count from $user_table order by size desc");
+		$data['users'] = $this->fusionapi->get_users();	
 		//var_dump($data);
 		//$this->template->write('sidebar', 'Sidebar!');
 		$this->template->write('title', 'iRODS Users');

@@ -33,4 +33,9 @@ class FusionAPI {
 		}
 		return $data;
 	}
+
+	function get_users() {
+		$user_table = 1686471;
+		return $this->query("SELECT user,size,file_count from $user_table order by size desc");
+	}
 }
