@@ -24,6 +24,7 @@ class NagiosAPI {
 		} else {
 			$json_data = json_decode($data, TRUE);
 			array_walk_recursive($json_data, array($this, 'to_unix_time'));
+			array_walk_recursive($json_data, array($this, 'reverse_host_state'));
 			return $json_data;
 		}
         }
@@ -33,6 +34,11 @@ class NagiosAPI {
 		if (in_array($key, array('host_last_check', 'service_next_check'))) {
 			$item = strtotime($item . ' MST');
 		}	
+	}
+
+	private function reverse_host_state(&$item, $key) {
+		if ($key == 'host_current_state')
+			$item = !$item;
 	}
 
 	public function get_services_with_state($state) {
@@ -49,6 +55,6 @@ class NagiosAPI {
 			return NULL;
 		
 		$json_data = $this->get_response('services', $host);
-		return $json_data;
+		return array($host => $json_data[$host]);
 	}
 }
