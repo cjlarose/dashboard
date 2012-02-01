@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "hostgroups";
+$route['default_controller'] = "nagios/hostgroups";
 $route['404_override'] = '';
 
 

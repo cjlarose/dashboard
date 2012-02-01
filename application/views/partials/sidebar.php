@@ -1,10 +1,10 @@
 <?php
 $links = array(
 	'Hosts' => array(
-		'/' => 'View hosts'
+		'/nagios/hostgroups' => 'View hosts'
 	),
 	'Services' => array(
-		'/services' => 'View services'
+		'/nagios/services' => 'View services'
 	)
 );
 ?>
