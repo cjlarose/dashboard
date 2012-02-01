@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 22
+/svn/!svn/ver/11/trunk
+END
+constants.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/11/trunk/constants.php
+END
+file.php
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/2/trunk/file.php
+END
+sql.php
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/2/trunk/sql.php
+END
+oauth.php
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/11/trunk/oauth.php
+END
+oauth_ext.php
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/11/trunk/oauth_ext.php
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/7/trunk/README
+END
+clientlogin.php
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/11/trunk/clientlogin.php
+END
