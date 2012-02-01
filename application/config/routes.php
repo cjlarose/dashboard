@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "nagios/hostgroups";
 $route['404_override'] = '';
-
+$route['irods'] = 'irods/users';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
