@@ -1,3 +1,9 @@
+<?php
+$links = array(
+	'Nagios' => '/nagios',
+	'iRODS' => '/irods'
+);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,12 +37,15 @@
         <div class="container-fluid">
           <a class="brand" href="<?php echo base_url('/'); ?>">Global Dashboard</a>
           <ul class="nav">
-            <li class="active"><a href="<?php echo base_url('/nagios'); ?>">Nagios</a></li>
-            <li><a href="<?php echo base_url('/irods'); ?>">iRODS</a></li>
-            <!--
-	    <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-		-->
+<?php 
+foreach ($links as $title => $location) {
+	if (($title == 'Nagios' && uri_string() == '') || "/" . uri_string() == $location)
+		echo "<li class=\"active\">";
+	else 
+		echo "<li>";
+	echo anchor($location, $title)  . "</li>";
+}
+?>
           </ul>
           <p class="pull-right">Logged in as <a href="#">username</a></p>
         </div>
