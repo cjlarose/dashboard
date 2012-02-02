@@ -1,3 +1,9 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="<?php echo base_url('js/fusion.js'); ?>"></script>
+<div style="height:500px;" id="disk_space_by_user"></div>
+<script>
+google.setOnLoadCallback(drawUsersPie('disk_space_by_user'));
+</script>
 <?php
 
 $table_data = array();
