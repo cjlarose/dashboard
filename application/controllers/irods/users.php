@@ -3,7 +3,7 @@ class Users extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-		//$this->template->write_view('sidebar', 'partials/sidebar');
+		$this->template->write_view('sidebar', 'irods/partials/sidebar');
 	}
 
 	public function index() {
