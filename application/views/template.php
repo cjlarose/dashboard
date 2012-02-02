@@ -38,12 +38,12 @@ $links = array(
           <a class="brand" href="<?php echo base_url('/'); ?>">Global Dashboard</a>
           <ul class="nav">
 <?php 
-foreach ($links as $title => $location) {
-	if (($title == 'Nagios' && uri_string() == '') || "/" . uri_string() == $location)
+foreach ($links as $text => $location) {
+	if (($text == 'Nagios' && uri_string() == '') || "/" . uri_string() == $location)
 		echo "<li class=\"active\">";
 	else 
 		echo "<li>";
-	echo anchor($location, $title)  . "</li>";
+	echo anchor($location, $text)  . "</li>";
 }
 ?>
           </ul>
