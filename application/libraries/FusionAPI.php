@@ -38,4 +38,14 @@ class FusionAPI {
 		$user_table = 1686471;
 		return $this->query("SELECT user,size,file_count from $user_table order by size desc");
 	}
+
+	function get_resources() {
+		$table_id = 1735745;
+		return $this->query("SELECT * from $table_id");
+	}
+	
+	function get_sizes() {
+		$table_id = 1735396;
+		return $this->query("SELECT * from $table_id");
+	}
 }
